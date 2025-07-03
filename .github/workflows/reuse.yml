@@ -3,7 +3,7 @@ name: Reusable workflow
 on:
   workflow_call:
     inputs:
-      node-version: 
+      version: 
         default: 18
         required: false
         type: number
@@ -24,7 +24,7 @@ jobs:
     - name: setup node
       uses: actions/setup-node@v4
       with:
-       node-version: 18
+       node-version: ${{ inputs.version }}
 
     - name: install dependencies
       run: npm install
