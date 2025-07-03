@@ -2,6 +2,11 @@ name: Reusable workflow
 
 on:
   workflow_call:
+    inputs:
+      node-version: 
+        default: 18
+        required: false
+        type: number
     secrets:
       username:
         required: true
@@ -15,9 +20,15 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v4
+      
+    - name: setup node
+      uses: actions/setup-node@v4
+      with:
+       node-version: 18
 
     - name: install dependencies
       run: npm install
+     
 
     - name: test
       run: npm test
