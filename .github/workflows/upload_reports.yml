@@ -32,9 +32,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-artifact
-          path: test-results.xml
+          path: ./artifact
 
   upload:
+    needs: Unit-testing
     runs-on: ubuntu-latest
 
     steps:
@@ -46,4 +47,4 @@ jobs:
         with:
           connection-string: ${{ secrets.AZURE_CONNECTION_STRING }}
           name: my-artifact
-          path: test-results.xml
+          path: ./artifact/test-results.xml
