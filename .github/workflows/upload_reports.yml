@@ -2,7 +2,6 @@
 name: Unit testing workflow
 
 on:
-  workflow_dispatch:
   push:
   
 jobs:
@@ -37,6 +36,15 @@ jobs:
           name: my-artifact
           path: test-results.xml
 
+          
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+    
+    
       - name: upload to blob storage
       - uses: fixpoint/azblob-upload-artifact@v4
         with:
