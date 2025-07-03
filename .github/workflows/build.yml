@@ -6,6 +6,9 @@ on:
 jobs:
   build_login:
      uses: ./.github/workflows/reuse.yml
+     secrets: 
+       username: ${{ secrets.DOCKER_USERNAME }}
+       password: ${{ secrets.DOCKER_PASSWORD }}
 
       
 
