@@ -2,8 +2,7 @@ name: Run Custom NPM Workflow
 
 on:
   push:
-    branches:
-      - main
+     
 
 jobs:
   run-npm-custom-action:
