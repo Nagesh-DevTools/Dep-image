@@ -1,0 +1,17 @@
+name: Run Custom NPM Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-npm-custom-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run custom npm composite action
+        uses: ./.github/custom-actions/npm-actions
