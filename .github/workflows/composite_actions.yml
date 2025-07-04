@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run custom npm composite action
-        uses: ./.github/custom-actions/npm
+        uses: ./github/custom-actions/npm
