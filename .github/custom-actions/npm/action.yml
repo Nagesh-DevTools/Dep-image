@@ -13,6 +13,4 @@ runs:
       run: npm install
       shell: bash
 
-    - name: Build project
-      run: npm run build
-      shell: bash
+   
