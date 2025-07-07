@@ -47,3 +47,6 @@ If the installation was successful, you should be able to run the following comm
 ## Access Application on Browser
     http://localhost:3000/
 
+
+[![Self-hosted runner](https://github.com/Nagesh-DevTools/Dep-image/actions/workflows/runer.yml/badge.svg)](https://github.com/Nagesh-DevTools/Dep-image/actions/workflows/runer.yml)
+
