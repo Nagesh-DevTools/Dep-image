@@ -1,0 +1,14 @@
+name: Self-hosted runner
+
+on:
+  push:
+
+jobs:
+  self-hosted:
+    runs-on: [npm , self-hosted , Linux]
+
+    steps: 
+
+      - name: print statement
+        run:
+          echo "Hello world"
