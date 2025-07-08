@@ -3,12 +3,14 @@ name: Unit testing workflow
 on:
   workflow_dispatch:
   push:
-    
+
 env:
   MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
   MONGO_USERNAME: superuser
   MONGO_PASSWORD: SuperPassword
-  
+  AZURE_FUNCTIONAPP_NAME: 'Actions-11'                           # Add your Azure Function App name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'                           # Set to '.' if code is in the repo root
+
 jobs:
   Unit-testing:
     runs-on: ubuntu-latest
@@ -16,21 +18,38 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        
-      - name: Set up Node.js with version
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
 
       - name: Install dependencies
         run: npm install
 
       - name: Run tests
         run: npm test
+       
 
-      - name: Archive/store
+      - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
           path: test-results.xml
+         
+
+      - name: Download test results
+        uses: actions/download-artifact@v4
+        with:
+          name: my-artifact
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Deploy to Azure Functions
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
