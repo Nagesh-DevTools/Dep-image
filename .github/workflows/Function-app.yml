@@ -8,8 +8,8 @@ env:
   MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
   MONGO_USERNAME: superuser
   MONGO_PASSWORD: SuperPassword
-  AZURE_FUNCTIONAPP_NAME: 'Actions-11'                           # Add your Azure Function App name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'                           # Set to '.' if code is in the repo root
+  AZURE_FUNCTIONAPP_NAME: Actions-11                          # Add your Azure Function App name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: .                        # Set to '.' if code is in the repo root
 
 jobs:
   Unit-testing:
