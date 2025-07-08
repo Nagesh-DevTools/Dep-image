@@ -9,7 +9,8 @@ env:
   MONGO_USERNAME: superuser
   MONGO_PASSWORD: SuperPassword
   AZURE_FUNCTIONAPP_NAME: Actions-11                          # Add your Azure Function App name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: .                        # Set to '.' if code is in the repo root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: Dep-image/.github/workflows/Function-app.yml
+                      
 
 jobs:
   Unit-testing:
