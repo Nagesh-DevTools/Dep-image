@@ -34,13 +34,15 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: my-file
+        name:  my-artifact
         path: test-results.xml
-      
-    - name: Download artifact
+        
+    - name: Download
       uses: actions/download-artifact@v4
       with:
-        name: my-file
+       name:test-results.xml
+    - name: Display structure of downloaded files
+      run: ls -R
 
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
